@@ -20,6 +20,12 @@ MINGW_64 = x86_64-w64-mingw32-gcc
 # 
 COMMON_CFLAGS = -Wall -Wextra -Werror -Wno-unused-parameter -O2 -I include
 
+STANIX_CFLAGS = -mno-sse -mno-sse2
+ifneq ($(findstring stanix, $(shell $(CC) -dumpmachine)),)
+# we are on stanix
+COMMON_CFLAGS += $(STANIX_CFLAGS)
+endif
+
 #
 # Output directories as variables
 #

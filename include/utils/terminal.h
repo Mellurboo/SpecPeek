@@ -6,7 +6,7 @@
 /*
     GCC Colour Escape Codes (More Portable)
 */
-#if defined(__GNUC__) && !defined(__MINGW32__)
+#if defined(__GNUC__) && (!defined(__MINGW32__)) && !defined(__stanix__)
 #define BLACK   "\033[30m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -34,7 +34,7 @@
     ofc it does, to clarify this only happens in the legacy CMD not
     the new Microsoft Terminal.
 */
-#if defined(__MINGW32__)
+#if defined(__MINGW32__) || defined(__stanix__)
 #define BLACK   "\x1b[0;30m"
 #define RED     "\x1b[0;31m"
 #define GREEN   "\x1b[0;32m"
